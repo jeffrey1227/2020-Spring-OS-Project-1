@@ -2,8 +2,8 @@
 
 ### How to run 
 ```
-cd <my folder>
-make
-sudo ./scheduling
-sudo dmesg -c | grep Project1
+$cd <my folder>
+$make
+$sudo ./scheduling
+$sudo dmesg -c | grep Project1
 ```
