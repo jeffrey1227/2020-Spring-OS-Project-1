@@ -5,4 +5,5 @@
 cd <my folder>
 make
 sudo ./scheduling
+sudo dmesg -c | grep Project1
 ```
