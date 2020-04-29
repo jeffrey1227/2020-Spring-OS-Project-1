@@ -49,8 +49,14 @@ int compare_Process(const void *a, const void *b)
 void insertP(Process **waiting_list, int policy, Process *P)
 {
     numP_now++;
-    if(policy == FIFO || policy == RR) // insert new process to the list
-        waiting_list[numP_now - 1] = P; 
+    if(policy == FIFO || policy == RR){ // insert new process to the list
+        waiting_list[numP_now - 1] = P;
+        if (numP_now >= 2 && waiting_list[numP_now - 1]->readyT != waiting_list[numP_now - 2]->readyT){
+            Process *temp = waiting_list[numP_now - 1];
+            waiting_list[numP_now - 1] = waiting_list[numP_now - 2];
+            waiting_list[numP_now - 2] = temp;
+        }
+    }
     if(policy == SJF || policy == PSJF) // need to find appropriate place according to execT
     {
         waiting_list[numP_now - 1] = P;
